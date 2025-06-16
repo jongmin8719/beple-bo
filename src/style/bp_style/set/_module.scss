@@ -1,0 +1,134 @@
+// /***********************
+//
+//      폰트 변수
+//
+// ***********************/
+
+// 사이즈 치환
+@function val($val) {
+	@return #{calc($val / 10)};
+}
+
+// 폰트 사이즈
+@function rem($px) {
+	@return #{val($px)}rem;
+}
+
+// 백그라운드 이미지
+@mixin bgUrl($name, $path, $pathSet :'../images/', $format: 'svg'){
+    background-image: url('#{$pathSet}#{$path}#{$name}.#{$format}');
+}
+@mixin bgDef($repeat, $position:0 0, $bgSize:contain){
+    background-repeat: $repeat;
+
+    @if $position != 0 {
+        background-position: $position;
+    }
+
+    @if $bgSize != 0{
+        background-size: $bgSize;
+    }
+}// bgDef
+
+@mixin ft_set($color, $fontF:prt, $weight:400){
+	color:$color;
+
+	@if($fontF == prt){
+		font-family:'Pretendard';
+	}
+
+	// 폰트 weight 설정
+	font-weight: $weight;
+}
+
+@mixin line_set($fs, $ph, $display:inherit){
+/*
+	생성 및 적용일 : 2024년 10월 21일
+
+	$fs : 폰트 사이즈
+	$ph : 단락간격.
+
+	계산법: 
+	줄간격(line-height) : $fs(font-size) + $ph()
+		예) 폰트사이즈 14px + 단락간격 6px(피그마 디자인 Paragraph-Height 수치값) 일 경우 줄간격(line-height)은 20px이 나와야함.
+		
+	해당 폰트를 가진 박스의 높이는 폰트 사이즈와 동일하게 잡혀야 하므로. 박스의 위 / 아래 여백 (margin-bottom)에
+	단락간격 6px(피그마 디자인 Paragraph-Height 수치값)의 50%인 3px을 음수로 적용하여야 함.
+		예) -(6px / 2) = -3px
+
+	최종 박스 높이값 : 14px이 나와야 한다.(폰트 사이즈와 동일한 수치)
+
+	$fs(14) + $ph(6) = line-height(20)
+	line-height(20) - margin-top(-($ph / 2)) - margin-bottom(-($ph / 2)) 
+	= line-height: 20px; height: 14px;
+
+*/
+	// 속성 기본값
+	display:$display;
+	// 폰트 사이즈
+	font-size: rem($fs);
+
+	// line 보정
+	margin-top: rem(-($ph / 2));
+	margin-bottom: rem(-($ph / 2));
+
+	line-height: rem(($fs + $ph))
+}
+
+// 블라인드
+@mixin blind {position:absolute;display:block;width:rem(1);height:rem(1);margin:rem(-1);padding:0;overflow:hidden;border:0;white-space:nowrap;clip:rect(0, 0, 0, 0);}
+// 말줄임 처리
+@mixin ellipsis($lines: 1) {
+    @if ($lines==1) { // 기본 한줄
+		display:block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else { // 두줄이상
+        display: -webkit-box !important;
+        overflow: hidden;
+		white-space: initial;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+		word-break: break-all;
+    }
+}
+// 여백용 강제 클래스
+@mixin spaceTemp(){
+	@for $i from 0 through 150 {
+		// padding
+		.pd#{$i} {padding:  0.1rem * $i !important;}
+		.pdt#{$i} {padding-top: 0.1rem * $i !important;}
+		.pdb#{$i} {padding-bottom: 0.1rem * $i !important;}
+		.pdr#{$i} {padding-right: 0.1rem * $i !important;}
+		.pdl#{$i} {padding-left: 0.1rem * $i !important;}
+		.pd-lr#{$i} {padding-left: 0.1rem * $i !important;padding-right: 0.1rem * $i !important;}
+		// margin
+		.mg#{$i} {margin: 0.1rem * $i !important;}
+		.mgt#{$i} {margin-top: 0.1rem * $i !important;}
+		.mgb#{$i} {margin-bottom: 0.1rem * $i !important;}
+		.mgr#{$i} {margin-right: 0.1rem * $i !important;}
+		.mgl#{$i} {margin-left: 0.1rem * $i !important;}
+		.mg-lr#{$i} {margin-left: 0.1rem * $i !important;margin-right: 0.1rem * $i !important;}
+		// gap
+		.gap-#{$i} {gap: 0.1rem * $i !important;}
+		.row_gap-#{$i} {row-gap: 0.1rem * $i !important;}
+		.column_gap-#{$i} {column-gap: 0.1rem * $i !important;}
+	}
+}
+// 넓이값 강제 클래스
+@mixin widthTemp(){
+	@for $i from 0 through 100 {
+		// width
+		.width-#{$i} {width:  0.1rem * $i !important;}
+		.max_width-#{$i} {width:  0.1rem * $i !important;}
+	}
+}
+// 높이값 강제 클래스
+@mixin heightTemp(){
+	@for $i from 0 through 100 {
+		// height
+		.height-#{$i} {height:  0.1rem * $i !important;}
+		.max_height-#{$i} {max-height:  0.1rem * $i !important;}
+	}
+}

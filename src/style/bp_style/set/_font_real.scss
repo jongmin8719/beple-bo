@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@use 'index' as *;
+// /* 프리텐다드 */
+    // 레귤러
+    @font-face {@include font_family_prt(R)}
+    // 미디움
+    @font-face {@include font_family_prt(M)}
+    // 세미볼드
+    @font-face {@include font_family_prt(SB)}
+    // 볼드
+    @font-face {@include font_family_prt(B)}
+    // 엑스트라볼드
+    @font-face {@include font_family_prt(EB)}

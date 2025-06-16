@@ -1,0 +1,657 @@
+@charset "UTF-8";
+@use 'bp_style/set/index' as *; // 모듈
+@use 'bp_style/set/font_real'; // 폰트적용
+@use 'bp_style/component'; // 컴포넌트
+@use 'bp_style/helper'; // 헬퍼
+:root {
+    // Gray Scale
+    --color-gray--lv1 : #f5f5f5;
+    --color-gray--lv2 : #f7f7f7;
+    --color-gray--lv3 : #ededed;
+    --color-gray--lv4 : #dbdbdb;
+    --color-gray--lv5 : #ccc;
+    --color-gray--lv6 : #999;
+    --color-gray--lv7 : #666;
+    --color-gray--lv8 : #333;
+    --color-gray--lv9 : #111;
+
+    --color-blue_gray--lv3 : #fafafa;
+    --color-white : #fff;
+
+    // Primary Color
+    --color-primary--lv1-A : #EBF6FF;
+    --color-primary--lv1-B : #EEF6FF;
+    --color-primary--lv2 : #B2E5FC;
+    --color-primary--lv3 : #87D5FF;
+    --color-primary--lv4 : #4AA9FF;
+    --color-primary--lv5 : #0D84FF;
+
+    // Secondary Color
+    // Color Mint
+    --color-second_mint--lv1 : #80DEEA;
+    --color-second_mint--lv2 : #01BCD5;
+    // Color Red
+    --color-second_red--lv1 : #ff8a65;
+    --color-second_red--lv2 : #ff3d01;
+    --color-second_red--lv3 : #e70000;
+    // Color Yellow
+    --color-second_yellow--lv1 : #ffd73f;
+    --color-second_yellow--lv2 : #ffa210;
+    // Color gradiant Color
+    --gradiant-gray--lv1-A : #dae0e5;
+    --gradiant-gray--lv1-B : #c5ccd3;
+    --gradiant-blue--lv2-A : #2a9dff;
+    --gradiant-blue--lv2-B : #0d84ff;
+
+    // table-header-bg
+    --bg-table-header  : #fafafa;
+    // infomation-box-bg
+    --bg-info--box      : #f7f7f7;
+
+    // padding
+    --padding-justify-def       : #{md-rem( 24 )};
+    --padding-justify-btn       : #{md-rem( 20 )};
+    --padding-main-btn          : #{md-rem( 24 )};
+    // box padding
+    --padding-box--type1        : #{md-rem( 16 )};
+    --padding-box--type2        : #{md-rem( 24 )};
+    --padding-box--type3        : #{md-rem( 32 )};
+
+    --padding-end-text--1       : #{md-rem( 16 )};
+    --padding-end-text--2       : #{md-rem( 24 )};
+    --padding-end-text--3       : #{md-rem( 32 )};
+
+    // margin
+    --margin-justify-def        : #{md-rem( 24 )};
+    --margin-tb-def             : #{md-rem( 24 )};
+
+    // 데이터 테이블
+    --padding-tbl-hspacing      : #{md-rem( 8 )}; // head-table
+    --padding-tbl-data-spacing  : #{md-rem( 6 )}; // all
+    --padding-tbl-data-tb       : #{md-rem( 12 )}; // body-table
+    --padding-tbl-data-lr       : #{md-rem( 12 )}; // body-table
+
+    // border-color
+    --color-border--1           :  #dbdbdb;
+    --color-border--2           :  #ededed;
+    --color-border--3           :  #f7f7f7;
+    //  input-border-color
+    --input--default-box :   #DBDBDB;
+    --input--default-line:   #ededed;
+    --input--disabled    :   #fafafa;
+    --input--active      :   #0D84FF;
+    --input--error       :   var(--color-second_red--lv3); // e70000
+
+    // radius
+    --radius--sm : #{md-rem(2)};
+    --radius--lv1 : #{md-rem(4)};
+    --radius--lv2 : #{md-rem(6)};
+    --radius--lv3 : #{md-rem(8)};
+    --radius--mid : #{md-rem(10)};
+    --radius--lv4 : #{md-rem(12)};
+    --radius--lv5 : #{md-rem(16)};
+    --radius--lv6 : #{md-rem(32)};
+    --radius--rnd : 50%;
+}// root
+
+
+// reset
+:root, html {
+	font-size: 62.5%;
+}// :root, html
+
+* {
+	padding: 0;
+	margin: 0;
+	letter-spacing: -0.025em;
+	word-break: break-all;
+}// *
+
+body *:focus {
+	outline: none;
+}// body *:focus
+
+html, body {
+	width: 100%;
+	height: auto;
+	min-height: 100vh;
+	max-height: fit-content;
+	background: transparent;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-o-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	-webkit-overflow-scrolling: touch;
+}// html, body
+
+html, body, h1, h2, h3, h4, h5, h6, div, fieldset, p, button {
+	font-size: md-rem(14);
+	font-family: "Pretendard", sans-serif;
+	color: #333;
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	line-height: 1;
+	min-width: md-rem(1);
+	-webkit-tap-highlight-color: transparent;
+}// html, body, h1, h2, h3, h4, h5, h6, div, fieldset, p, button
+
+button, input[type="submit"] {
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+	background-color: inherit;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	appearance: none;
+	overflow: visible;
+}// button, input[type="submit"]
+
+a, button, input[type="submit"] {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	pointer-events: auto;
+}// a, button, input[type="submit"]
+
+button:focus {
+	outline: none;
+}// button:focus
+
+a:visited, a:hover {
+	text-decoration: none;
+}// a:visited, a:hover
+
+ul, ol {
+	list-style: none;
+}// ul, ol
+
+caption span, legend {
+	overflow: hidden;
+	position: absolute;
+	left: -9999px;
+}// caption span, legend
+
+img {
+	width: 100%;
+	vertical-align: top;
+	border: 0;
+}// img
+
+input, select {
+	font-family: "Pretendard", sans-serif;
+	vertical-align: middle;
+	border-radius: 0;
+	line-height: 1;
+}// input, select
+
+select {
+	border: 0 none;
+	appearance: none;
+}// select
+
+table {
+	table-layout: auto;
+	width: 100%;
+	box-sizing: border-box;
+}// table
+
+th, td, p, strong, span, em, i {
+	font-style: normal;
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}// th, td, p, strong, span, em, i
+
+input {
+	font-size: 1.6rem;
+	color: #333;
+	width: 100%;
+	background-color: transparent;
+	box-shadow: none;
+	-webkit-tap-highlight-color: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border: 0 none;
+
+	&:focus {
+		outline: none;
+	}// :focus
+
+	&::placeholder {
+		font-size: inherit;
+		letter-spacing: inherit;
+		color: #ccc;
+	}// ::placeholder
+
+	&::-webkit-textfield-decoration-container {
+		height: initial !important;
+	}// ::-webkit-textfield-decoration-container
+
+
+	&[type="text"], &[type="number"], &[type="tel"], &[type="password"] {
+		height: md-rem(16);
+	}
+
+	&[type="checkbox"], &[type="radio"] {
+		display: inline-block;
+		width: md-rem(20);
+		height: md-rem(20);
+		cursor: pointer;
+		box-sizing:border-box;
+	}
+
+	// 체크박스 공통
+	&[type="checkbox"] {
+		border: 0 none;
+		border-radius: md-rem(6);
+		background-image: fn-icon(icon_checkbox-24, ededed, fff);
+		@include md-bgDef(no-repeat, 0 0, 100% 100%);
+
+		&:checked {
+			background-image: fn-icon(icon_checkbox-24, 0d84ff, fff);
+		}
+		&[disabled] {
+			background-image: fn-icon(icon_checkbox-24, ededed, dbdbdb);
+		}
+		&[readonly] {
+			background-image: fn-icon(icon_checkbox-24, ededed, ccc);
+			cursor: default;
+		}
+	}// checkbox
+
+	// 체크박스 공통
+	&[type="checkbox"] {
+		border: 0 none;
+		border-radius: md-rem(6);
+		background-image: fn-icon(icon_checkbox-24, dbdbdb, fff);
+		@include md-bgDef(no-repeat, 0 0, 100% 100%);
+
+		&:checked {
+			background-image: fn-icon(icon_checkbox-24, 0d84ff, fff);
+		}
+		&[disabled] {
+			pointer-events: none !important;
+			background-image: fn-icon(icon_checkbox-24, ededed, dbdbdb);
+		}
+		&[readonly] {
+			pointer-events: none !important;
+			background-image: fn-icon(icon_checkbox-24, ededed, ccc);
+			cursor: default;
+		}
+	}// checkbox
+
+	// 라디오버튼 공통
+	&[type="radio"] {
+		position: relative;
+		border: md-rem(1) solid #dbdbdb;
+		border-radius:50%;
+		background-color: #fff;
+
+		&::after {
+			display:block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform:translate(-50%, -50%);
+			width: md-rem(10);
+			height: md-rem(10);
+			background-color: #ccc;
+			border-radius:inherit;
+		}
+
+		// 선택됨
+		&:checked {
+			border-color: var(--color-primary--lv5);
+			background-color: var(--color-primary--lv5);
+			&::after {
+				content:"";
+				background-color: var(--color-white);
+			} 
+		}// &[checked]
+		// 비활성화
+		&[disabled] {
+			border-color: #ccc;
+			background-color: #ededed;
+		}// &[disabled]
+		// 읽기전용
+		&[readonly] {
+			border-color: #ccc;
+			background-color: #ededed;
+			cursor: default;
+
+			// 읽기전용 선택됨
+			&[checked] {
+				&::after {
+					content:"";
+					background-color: #ccc;
+				}
+			}// &[readonly]&[checked]
+		}// &[readonly]
+	}// radio
+
+	// 패스워드 공통
+	&[type="password"] {
+		font-family: 'Noto Sans KR', sans-serif !important;
+		font-weight: 400;
+		margin-bottom: md-rem(4);
+
+		&::placeholder {
+			font-family: "Pretendard", sans-serif !important;
+			margin-bottom: 0;
+		}// ::placeholder
+	}// &[type="password"]
+
+	// 토글 라디오박스
+	&.input-toggle[type='checkbox'] {
+		position: relative;
+		width: md-rem(40);
+		background-image: none;
+
+		&::before, &::after {
+			transition-duration: 0.3s;
+		}
+
+		// 토글 레일
+		&::before {
+			content:"";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: calc(100% - 12px);
+			height: md-rem(14);
+			background-color: #ccc;
+			opacity: 0.3;
+			border-radius:35px;
+		}
+		// 토글 볼
+		&::after {
+			content:"";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(0, -50%);
+			width: md-rem(20);
+			height: 100%;
+			background-color: #ccc;
+			border-radius: 50%;
+		}
+
+		// 활성화
+		&:checked {
+			// 토글 레일
+			&::before {
+				background-color: var(--color-primary--lv5);
+				opacity: 0.15;
+			}
+			// 토글 볼
+			&::after {
+				left: 50%;
+				background-color: var(--color-primary--lv5);
+				transform: translate(0, -50%);
+			}
+		}
+
+		// 읽기전용
+		&[readonly] {
+			pointer-events: none;
+			&::before {
+				background-color: #ccc;
+			}
+			&::after {
+				background-color: #ccc;
+			}
+		}// toggle[readonly]
+	}
+
+}// input
+
+input:disabled {
+	&[type="text"], &[type="tel"], &[type="number"] {
+		font-size: md-rem(16);
+		font-weight: 400;
+		color: #ccc;
+	}// &[type="text"], &[type="tel"], &[type="number"]
+}// input:disabled
+
+textarea {
+	width: 100%;
+	height: 100%;
+	box-shadow: none;
+	-webkit-appearance: none;
+	overflow: auto;
+	border: 0 none;
+	border-radius: 0;
+	resize: none;
+
+	&::placeholder {
+		font-size: md-rem(14);
+		color: #c6c6c6;
+	}// &::placeholder
+
+	&::-webkit-scrollbar {
+		display: none;
+	}// &::-webkit-scrollbar
+}// textarea
+
+/**********************************
+
+	normallize 
+
+**********************************/
+// /******************
+
+// * IE8/9에서 정의되지 않은 HTML5 요소를 'block'으로 지정.
+// * IE10/11, Firefox에서 정의되지 않은 `detail` 혹은 `summary` 를 `block`으로 지정.
+// * IE11에서 정의되지 않은 `main`을 `block`으로 지정
+
+// ******************/
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	display: block;
+}// article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary
+
+// /******************
+
+// 1. IE8/9에서 `inline-block`으로 정의되지 않은 것을 올바르게 지정.
+// 2. Chrome, Firefox, Opera에서 `progress`의 세로 정렬을 표준화.
+
+// ******************/
+audio, canvas, progress, video {
+	display: inline-block;/* 1 */
+	vertical-align: baseline;/* 2 */
+}// audio, canvas, progress, video
+
+// /******************
+
+// * 모던 브라우저들에서 controls 속성없이 audio 요소가 렌더링 되는 것을 예방
+// * iOS 5 기기에서 높이를 초과하는 것을 제거
+
+// ******************/
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}// audio:not([controls])
+
+// /******************
+
+// * `[hidden]` 속성의 스타일이 IE 8/9/10에서 존재하지 않는 것을 해결.
+// * IE 8/9/10/11, Safari, Firefox < 22 에서 `template` 요소를 숨김.
+
+// ******************/
+[hidden], template {
+	display: none;
+}// [hidden], template
+
+/******************
+
+	Links
+
+******************/
+// IE10에서 활성화(active)된 링크의 회색 배경을 제거
+a {
+	background-color: transparent;
+
+	// active/hover 상태일때에도 포커스된 요소의 가독성을 향상.
+	&:active, &:focus, &:hover {
+		outline: none;
+		-webkit-tap-highlight-color: transparent;
+	}// &:active, &:focus, &:hover
+}// a
+
+/****************** 
+
+	Text-level semantics
+
+******************/
+// IE 8/9에서 존재하지 않는 스타일을 부여.
+mark {
+	background: #ff0;
+	color: #000;
+}// mark
+
+// `sub`과 `sup`요소가 모든 브라우저에서 `line-height`에 영향을 미치는 것을 예방.
+sub, sup {
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}// sub, sup
+
+sup {
+	top: -0.5em;
+}// sup
+
+sub {
+	bottom: -0.25em;
+}// sup
+
+/******************
+
+	Embedded content
+
+******************/
+
+// IE 9/10/11에서 `svg` 요소가 영역의 크기를 벗어나지 않도록 수정.
+svg:not(:root) {
+	overflow: hidden;
+}// svg:not(:root)
+
+/******************
+
+	Grouping content
+
+******************/
+// IE 8/9, Safari에서 존재하지 않는 `margin` 값을 부여.
+figure {
+	margin: 1rem 40px;
+}// figure
+
+// Firefox와 다른 브라우저들 사이의 차이점 해결.
+hr {
+	box-sizing: content-box;
+	height: 0;
+}// hr
+
+// 모든 브라우저에서 `pre` 요소의 `overfolow` 값을 통일.
+pre {
+	overflow: auto;
+}// pre
+
+// 모든 브라우저에서 글꼴과 글꼴 크기가 다른 것을 해결.
+code, pre, samp {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	line-height: inherit;
+}// code, pre, samp
+
+/******************
+
+	Forms
+
+******************/
+
+// 	* `button`과 `select` 요소에 `text-transform` 상속이 일치하지 않는 것을 해결
+// 	* 모든 다른 폼 컨트롤 요소는 `text-transform` 값을 상속하지 않는다.
+// 	* IE 8/9/10/11, Firefox, Opera에서 `button` 요소의 스타일 상속 수정.
+// 	* Firefox에서 `select` 요소의 스타일 상속 수정.
+button, select {
+	text-transform: none;
+}// button, select
+
+// 1. Android 4.0.*에서 `audio`와 `video` 컨트롤을 파괴하는 웹킷 버그를 방지.
+// 2. iOS에서 클릭가능한 `input` 유형에 스타일링을 할 수 없는 것을 수정.
+// 3. `input` 요소와 다른 요소들의 image-type의 커서 모양을 일치시켜 가용성을 향상.
+
+// ******************/
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}// button, html input[type="button"], input[type="reset"], input[type="submit"]
+
+// disabled된 요소의 기본 커서를 재설정
+button[disabled], html input[disabled] {
+	cursor: default;
+}// button[disabled], html input[disabled]
+
+// Firefox 4+에서 내부 `padding`과 `border`를 제거
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+// 	* Chrome의 증가/감소 버튼의 커서 모양을 수정.
+// 	* `input` 요소의 특정 `font-size` 값에 대해 감소 버튼의 커서 모양이 `default`에서 `text`로 변한다.
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}// input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button
+
+// 	* OS X의 Safari, Chrome에서 내부(inner) `padding`과 검색 취소 버튼을 제거.
+// 	* Safari (but not Chrome) clips the cancel button when the search input has
+// 	* padding (and `textfield` appearance).
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}// input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration
+
+// 	* 1. IE 8/9/10/11에서 `color`는 상속되지 않는다.
+// 	* 2. Remove padding so people aren't caught out if they zero out fieldsets.
+legend {
+	border: 0; /* 1 */
+	padding: 0; /* 2 */
+}
+
+// 	* `font-weight`는 상속되지 않는다.(applied by a rule above).
+// 	* 주의 : OS X의 Chrome과 Safari에서 기본값을 변경하는 것은 안전하지 않다.
+optgroup {
+	font-weight: bold;
+}// optgroup
+
+/****************** 
+
+	Tables
+
+******************/
+// /* 테이블 요소 사이의 간격을 제거 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	td, th {
+		padding: 0;
+	}// td, th
+}// table
+
+// IE10 input type auto x delete
+input[type=text]::-ms-clear, input[type=file]::-ms-clear, input[type=num]::-ms-clear, input[type=tel]::-ms-clear {
+	display: none;
+}// input[type=text]::-ms-clear, input[type=file]::-ms-clear, input[type=num]::-ms-clear, input[type=tel]::-ms-clear
+
+// Chrome Field Outline = None
+input:focus, textarea:focus, select:focus, button:focus {
+	outline: none;
+}// input:focus, textarea:focus, select:focus, button:focus

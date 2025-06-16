@@ -1,0 +1,41 @@
+@charset "UTF-8";
+$font-path: '../assets/font/pretendard/';
+// 프리탠다드
+@mixin family_prt($set){
+    @if ($set == R){
+        font-family: 'Pretendard';
+        font-style:normal;
+        font-weight:400;
+        src: local('Pretendard Regular'),
+        url('#{$font-path}Pretendard-Regular.woff2') format('woff2'),
+        url('#{$font-path}Pretendard-Regular.woff') format('woff');
+    }@else if ($set == M){
+        font-family: 'Pretendard';
+        font-style:normal;
+        font-weight:500;
+        src: local('Pretendard Medium'),
+        url('#{$font-path}Pretendard-Medium.woff2') format('woff2'),
+        url('#{$font-path}Pretendard-Medium.woff') format('woff');
+    }@else if ($set == SB){
+        font-family: 'Pretendard';
+        font-style:normal;
+        font-weight:600;
+        src: local('Pretendard SemiBold'),
+        url('#{$font-path}Pretendard-SemiBold.woff2') format('woff2'),
+        url('#{$font-path}Pretendard-SemiBold.woff') format('woff');
+    }@else if ($set == B){
+        font-family: 'Pretendard';
+        font-style:normal;
+        font-weight:700;
+        src: local('Pretendard Bold'),
+        url('#{$font-path}Pretendard-Bold.woff2') format('woff2'),
+        url('#{$font-path}Pretendard-Bold.woff') format('woff');
+    }@else if ($set == EB){
+        font-family: 'Pretendard';
+        font-style:normal;
+        font-weight:800;
+        src: local('Pretendard ExtraBold'),
+        url('#{$font-path}Pretendard-ExtraBold.woff2') format('woff2'),
+        url('#{$font-path}Pretendard-ExtraBold.woff') format('woff');
+    }
+}
