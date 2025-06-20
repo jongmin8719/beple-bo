@@ -1165,7 +1165,9 @@
         gap: md-rem(24);
         width: 100%;
         box-sizing:border-box;
-
+    }// form-box
+    
+    &__item {
         .form__label {font-weight: 600;}
         .input__unit {flex-shrink:0;}
         .input-type {
@@ -1365,9 +1367,7 @@
 
             span {color: var(--color-gray--lv8);}
         }// unit--max-length
-    }// form-box
-    
-    &__item {
+
         display: flex;
         flex-direction: column;
         gap: md-rem(12);
