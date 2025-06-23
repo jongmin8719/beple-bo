@@ -17,7 +17,7 @@ export default defineConfig({
   // 빌드 설정
   build: {
     outDir: 'dist',   // 빌드 출력 디렉토리
-    assetsDir: 'assets', // 빌드 출력 디렉토리
+    assetsDir: 'assets', // 빌드 출력 디렉토
     rollupOptions: {
       output: {
         // js 파일 구조
