@@ -5,11 +5,24 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@style': path.resolve(__dirname, './src/style'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+    }
+  },
   css: {
     devSourcemap: true, // 개발 소스맵
+    modules: {
+      localsConvention: 'camelCase',
+      scopeBehaviour: 'local',
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+    },
     preprocessorOptions: {
       scss: {
-        api: "modern-compiler",
+        includePaths: [path.resolve(__dirname, 'src/style')]
       },
     },
   },

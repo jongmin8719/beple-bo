@@ -1,19 +1,16 @@
 import { Link } from 'react-router-dom'
-import '../../style/common.scss'
 
-function Header() {
+function Header({ logo }) {
     return (
-        <>
-            <header className='header'>
-                <h1><Link to='/'>Home</Link></h1>
-                <nav>
-                    <ul>
-                        <li><Link to='components/faq/page'>FAQ</Link></li>
-                    </ul>
-                </nav>
-            </header>
-        </>
+        <header>
+            <h1>
+                <Link to='/'>
+                    {logo && <img src={logo} alt="로고" />}
+                    {!logo && <span className="no-logo">BEPLE</span>}
+                </Link>
+            </h1>
+        </header>
     )
 }
 
-export default Header
+export default Header 

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import '../../style/common.scss'
+import '@/style/common.scss'
 
 function ContainerWrap({ className }) {
     return (

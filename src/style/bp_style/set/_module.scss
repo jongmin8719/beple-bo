@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // /***********************
 //
 //      폰트 변수
@@ -41,7 +43,7 @@
 	font-weight: $weight;
 }
 
-@mixin line_set($fs, $ph, $display:inherit){
+@mixin line_set($fs, $ph, $display: inherit){
 /*
 	생성 및 적용일 : 2024년 10월 21일
 

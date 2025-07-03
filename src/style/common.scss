@@ -1,8 +1,9 @@
 @charset "UTF-8";
-@use 'bp_style/set/index' as *; // 모듈
-@use 'bp_style/set/font_real'; // 폰트적용
-@use 'bp_style/component'; // 컴포넌트
-@use 'bp_style/helper'; // 헬퍼
+@use "sass:math";
+@use '@style/bp_style/set' as *;
+@use '@style/bp_style/component' as *;
+@use '@style/bp_style/helper' as *;
+
 :root {
     // Gray Scale
     --color-gray--lv1 : #f5f5f5;
@@ -231,11 +232,6 @@ input {
 	&::-webkit-textfield-decoration-container {
 		height: initial !important;
 	}// ::-webkit-textfield-decoration-container
-
-
-	&[type="text"], &[type="number"], &[type="tel"], &[type="password"] {
-		height: md-rem(16);
-	}
 
 	&[type="checkbox"], &[type="radio"] {
 		display: inline-block;

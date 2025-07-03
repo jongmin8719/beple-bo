@@ -1,7 +1,8 @@
 @charset "UTF-8";
-$font-path: '../assets/font/pretendard/';
+$font-path: '@assets/font/pretendard/';
+
 // 프리탠다드
-@mixin family_prt($set){
+@mixin font_family_prt($set){
     @if ($set == R){
         font-family: 'Pretendard';
         font-style:normal;

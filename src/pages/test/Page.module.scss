@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@use '@/style/bp_style/set/index' as *;
+
+.test {
+    color: #00f;
+
+    .test_box {
+        display:flex;
+    }
+    h1{
+        @include md-ft_set(#00f, $weight: 700);
+        @include md-line_set(100, 60);
+    }
+}

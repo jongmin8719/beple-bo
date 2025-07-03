@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import { Link, Routes, Route, useNavigate, Outlet } from 'react-router-dom'
-import './style/common.scss'
-import Header from './components/common/Header.jsx'
-import ContainerWrap from './components/common/ContainerWrap.jsx'
+import Header from '@components/temp/header'
+import PageWrap from '@components/temp/pageWrap'
+import { Outlet } from 'react-router-dom'
+
+// 스타일시트
+import '@style/common.scss'
+import '@style/main.scss'
 
 function App() {
 
   return (
-    <>
-      <Header />
-      <ContainerWrap />
-    </>
+    <PageWrap>
+      <Header logo={null} />
+      <Outlet />
+    </PageWrap>
   )
 }
 
