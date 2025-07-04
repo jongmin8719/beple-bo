@@ -1,10 +1,10 @@
-import Header from '@components/temp/header'
-import PageWrap from '@components/temp/pageWrap'
+import Header from '@components/layout/header'
+import PageWrap from '@components/layout/pageWrap'
 import { Outlet } from 'react-router-dom'
 
 // 스타일시트
 import '@style/common.scss'
-import '@style/main.scss'
+import '@style/index.scss'
 
 function App() {
 
