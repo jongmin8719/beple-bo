@@ -1,17 +1,17 @@
 import DataTable from '@components/module/table/DataTable'
 // 스타일 시트
-import styles from './Page.module.scss'
+import styles from '../Page.module.scss'
 
 const tableColumn = [10, 20, 20, 20, 15, 15] // 컬럼 너비
 // 더미 데이터 - tbody용 2차원 배열
 const dummyData = [
-    ['1', '홍길동', 'hong@example.com', '개발팀', '2023-01-15'],
-    ['2', '김철수', 'kim@example.com', '디자인팀', '2023-02-10'],
-    ['3', '이영희', 'lee@example.com', '마케팅팀', '2023-03-05'],
+    ['1', '박길동', 'hong@example.com', '개발팀', '2023-01-15'],
+    ['2', '박철수', 'kim@example.com', '디자인팀', '2023-02-10'],
+    ['3', '박영희', 'lee@example.com', '마케팅팀', '2023-03-05'],
     ['4', '박민수', 'park@example.com', '영업팀', '2023-04-20'],
-    ['5', '최수진', 'choi@example.com', '개발팀', '2023-05-12'],
-    ['6', '정우성', 'jung@example.com', '인사팀', '2023-06-08'],
-    ['7', '한지민', 'han@example.com', '디자인팀', '2023-07-03'],
+    ['5', '최무진', 'choi@example.com', '개발팀', '2023-05-12'],
+    ['6', '박우성', 'jung@example.com', '인사팀', '2023-06-08'],
+    ['7', '송지민', 'han@example.com', '디자인팀', '2023-07-03'],
     ['8', '송강호', 'song@example.com', '마케팅팀', '2023-08-15']
 ]
 // 더미 헤더 데이터
@@ -39,12 +39,12 @@ const dummyTableHead = [
     }
 ]
 
-function TestPage() {
+function BeplePay() {
     return (
         <>
             <div className={styles.test}>
                 <div className={styles.test_box}>
-                    <h1>WorkList</h1>
+                    <h1>비플페이 관리</h1>
                 </div>
 
                 <DataTable className={`${styles.data_table} ${styles['data-table--type-1']}`} colWidth={tableColumn} column={dummyTableHead} data={dummyData} />
@@ -54,4 +54,4 @@ function TestPage() {
     )
 }
 
-export default TestPage
+export default BeplePay

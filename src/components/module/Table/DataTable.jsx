@@ -1,4 +1,4 @@
-import '../../../style/common.scss'
+import '@style/common.scss'
 
 
 function DataTable({ colWidth, column, data, className }) {

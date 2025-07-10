@@ -1,6 +1,6 @@
 import Input from '../../components/module/Form/Input.jsx'
 
-function TestPage2() {
+function ViewPage() {
     return (
         <>
             
@@ -8,4 +8,4 @@ function TestPage2() {
     )
 }
 
-export default TestPage2
+export default ViewPage
