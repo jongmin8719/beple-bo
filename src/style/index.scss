@@ -1,63 +1,42 @@
 @charset "UTF-8";
 @use '@style/bp_style/set/index' as *; // 모듈
 @use '@style/bp_style/set/font_real'; // 폰트적용
-$bp-pc-max : 1920px; // 데스크탑 최대
-$bp-pc-medium : 1440px; // 데스크탑 미디엄
-$bp-pc-min : 1200px; // 데스크탑 최소
-$bp-tablet : 960px; // 태블릿
-$bp-mobile-max : 720px; // 모바일 최대
-$bp-mobile-medium : 360px; // 모바일 기본
-$bp-mobile-small : 320px; // 모바일 미디엄
-$bp-mobile-min : 280px; // 모바일 최소
+// 해상도 설정
 
-// 1920px 이하 데스크탑 최대
-@media all and (max-width: $bp-pc-max) {
+$mobile-sm: 360px;      // 모바일
+$mobile-max: 720px;     // 모바일 최대
+$tablet: 1024px;    // 태블릿
+$desktop-md: 1440px;    // 데스크탑 미디엄
+$desktop-lg: 1920px;    // 데스크탑 최대
 
-}
-// 1440px 이하 데스크탑 미디엄
-@media all and (max-width: $bp-pc-medium) {
+// 1920px 이하 데스크탑 최대 해상도
+@media all and (min-width: $desktop-lg) {
 
 }
-// 1200px 이하 데스크탑 최소
-@media all and (max-width: $bp-pc-min) {
+// 1440px 이하 데스크탑 미디엄 최대
+@media all and (min-width: $desktop-md) {
 
 }
-
-// 960px 이하 태블릿
-@media all and (max-width: $bp-tablet) {
+// 1024px 이하 데스크탑 최소
+@media all and (min-width: $tablet) {
 
 }
 
-// 768px 이하 모바일 최대
-@media all and (max-width: $bp-mobile-max) {
+// 720px 이하 모바일 최대
+@media all and (min-width: $mobile-max) {
 
 }
 
-// 360px 이하 모바일 기본
-@media all and (max-width: $bp-mobile-medium) {
+// 360px 이하 모바일 미디움
+@media all and (min-width: $mobile-sm) {
 
 }
 
-// 320px 이하 모바일 미디엄
-@media all and (max-width: $bp-mobile-small) {
-
-}
-
-// 280px 이하 모바일 최소
-@media all and (max-width: $bp-mobile-min) {
-
-}
-
-
-
-
-$max-width: md-rem(1920);
+// 레이아웃 설정
 $wrap-height: 100vh;
-
 // 컨테이너 패딩 기본값
 $container-pd-button : md-rem(20);
 $container-pd-default : md-rem(24);
-
 
 #root {
 	display:flex;
@@ -118,15 +97,11 @@ $container-pd-default : md-rem(24);
                 width:auto;
                 height:auto;
 
-
                 .nav-link{
                     flex-shrink:0;
                 }
             }
         }
-
-
-        
     }
 
     .container-wrap {
