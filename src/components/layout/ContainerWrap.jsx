@@ -5,7 +5,7 @@ function ContainerWrap({ className, children }) {
     return (
         <>
             <main className={'container-wrap' + (className ? ' '+className : '')}>
-                {children ? children : <Outlet />}
+                <Outlet />
             </main>
         </>
     )

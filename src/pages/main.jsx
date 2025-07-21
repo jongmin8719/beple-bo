@@ -1,6 +1,7 @@
 // 스타일 시트
 import '@style/index.scss'
 
+
 function MainPage() {
     return (
         <>

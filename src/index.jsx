@@ -22,6 +22,16 @@ createRoot(document.getElementById('root')).render(
       <Routes>
           <Route path={routes[0].path} element={routes[0].element}>
             <Route element={<ContainerWrap />}>
+              {/* 메인 라우트 */}
+              {
+                flatRoutes
+                .filter(route => route.index)
+                .map((route, index) => (
+                  <Route index key={`index-${index}`} path={route.path} element={route.element} />
+                ))
+              }
+
+              {/* 네비게이션 라우트 */}
               {
                 flatRoutes
                 .filter(route => route.showInNav)

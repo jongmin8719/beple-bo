@@ -39,7 +39,7 @@ const dummyTableHead = [
     }
 ]
 
-function WorkingPage() {
+function Dashboard() {
     return (
         <>
             <div className={styles.test}>
@@ -57,4 +57,4 @@ function WorkingPage() {
     )
 }
 
-export default WorkingPage
+export default Dashboard

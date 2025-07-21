@@ -17,6 +17,8 @@ function Header({logo, pageTitle}) {
                         {!logo && <span className='no-logo'>{pageTitle}</span>}
                     </Link>
                 </h1>
+
+                {/* 네비게이션 */}
                 <nav className='nav-wrap'>
                     {routes
                         .filter(route => route.showInNav)
@@ -26,31 +28,13 @@ function Header({logo, pageTitle}) {
                                 className={`nav-item`}
                             >
                             {/* 메인 네비게이션 */}
-                            <Link 
-                                key={route.path}
-                                className={`nav-link ${pathname === route.path ? 'active' : ''}`}
-                                to={route.path}
-                            >
-                                {route.name}
-                            </Link>
-
-
-                                {/* 서브 네비게이션 */}
-                                <div className='nav-item__sub'>
-                                    {route.children &&
-                                        route.children
-                                        .filter(subRoute => subRoute.showInNav)
-                                        .map(subRoute => (
-                                            <Link
-                                                key={subRoute.path}
-                                                className={`nav-link nav-link__sub ${pathname === subRoute.path ? 'active' : ''}`}
-                                                to={subRoute.path}
-                                            >
-                                                {subRoute.name}
-                                            </Link>
-                                        ))
-                                    }
-                                </div>
+                                <Link 
+                                    key={route.path}
+                                    className={`nav-link ${pathname === route.path ? 'active' : ''}`}
+                                    to={route.path}
+                                >
+                                    {route.name}
+                                </Link>
                             </div>
                         ))
                     }

@@ -1,46 +1,32 @@
 import App from '@/App';  // Test 페이지 컴포넌트 import
-import WorkingPage from '@/pages/working/Page';  // 작업 현황 페이지
-import BeplePay from '@/pages/working/sub/BeplePay';  // 비플페이 페이지
-import ViewPage from '@/pages/view/Page';  // 페이지 뷰 관리
+import Dashboard from '@/pages/dashboard/Page';  // 작업 현황 페이지
+import ProjectsPage from '@/pages/projects/Page';  // 프로젝트 관리
+import MainPage from '@/pages/main';  // 프로젝트 관리
 
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
         element: <App />,
-        showInNav: false
-    },
-    {
-        path: '/working',
-        name: '작업 현황',
-        element: <WorkingPage />,
-        showInNav: true,
+        showInNav: false,
         children: [
             {
-                path: '/working/beple-pay',
-                name: '비플페이',
-                element: <BeplePay />,
-                showInNav: true
-            },
-            {
-                path: '/working/beple-pay',
-                name: '비플페이 서브2',
-                element: <BeplePay />,
-                showInNav: true
-            },
-            {
-                path: '/working/beple-pay',
-                name: '비플페이 서브3',
-                element: <BeplePay />,
+                index: true,
+                element: <MainPage />,
                 showInNav: true
             }
         ]
     },
     {
-        path: '/view',
-        name: 'PageViewList',
-        element: <ViewPage />,
+        path: '/dashboard',
+        name: 'Dashboard',
+        element: <Dashboard />,
+        showInNav: true
+    },
+    {
+        path: '/projects',
+        name: 'Projects',
+        element: <ProjectsPage />,
         showInNav: true
     }
 ]
